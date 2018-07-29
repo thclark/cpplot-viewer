@@ -35,7 +35,7 @@
     "redux": "^3.7.2",
     "redux-api-middleware": "^2.0.0-beta.3",
     "redux-persist": "^5.9.1",
-    "redux-persist-transform-filter": "0.0.16",
+    "redux-persist-transform-filter": "0.0.16"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
