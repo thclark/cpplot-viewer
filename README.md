@@ -16,7 +16,7 @@ Browser based figure viewer. Save plotly figures (in `json` format) to *.json fi
 You don't need to clone this repo, or run your own server, or ANYTHING.
 
 1. Download some or all of the example figure files to a folder on your local pc:
-  - <a href="https://github.com/thclark/cpplot-viewer/blob/master/examples/mandelbrot.json" download target="_blank">Download mandelbrot.json (15.4Mb)</a>
+  - <a href="https://github.com/thclark/cpplot-viewer/raw/master/examples/mandelbrot.json" download target="_blank">Download mandelbrot.json (15.4Mb)</a>
   - [example_bar.json]()
 
 2. Open your browser (preferably chrome) and navigate to [https://cpplot.herokuapp.com/](https://cpplot.herokuapp.com/).
