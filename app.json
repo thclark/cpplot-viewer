@@ -1,0 +1,31 @@
+{
+  "name": "cpplot-viewer",
+  "description": "An in-broswer viewer for figure files produced by the cppplot library",
+  "repository": "https://github.com/thclark/cpplot-viewer",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["c++", "cpp", "figure", "plotly", "graph", "chart"],
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/mars/create-react-app-buildpack"
+    }
+  ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "npm test"
+      },
+      "env": {
+      },
+      "addons":[
+      ]
+    }
+  }
+}
