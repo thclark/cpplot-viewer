@@ -4,16 +4,11 @@
    <img src="https://cdn.worldvectorlogo.com/logos/react.svg" height="48">
    <img src="https://steemitimages.com/0x0/https://s3-us-west-1.amazonaws.com/plotly-tutorials/plotly-marketing-pages/images/new-branding/logo/images/plotly-logo-01-stripe%402x.png" height="48">
 </a>
-
-# cpplot-viewer
-
-Browser based figure viewer. Save plotly figures (in `json` format) to *.json files from any language, and use this tool to view them in your browser.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
 [![npm](https://img.shields.io/npm/v/cpplot-viewer.svg)](https://www.npmjs.com/package/cpplot-viewer)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![Build Status](https://travis-ci.com/thclark/cpplot-viewer.svg?branch=master)](https://travis-ci.com/thclark/cpplot-viewer)
+
+Browser based figure viewer. Save plotly figures (in `json` format) to *.json files from any language, and use this tool to view them in your browser.
 
 ## Quick start
 
@@ -54,6 +49,13 @@ You can share your figures with your colleagues as files, generate those files f
 
 Of course, for groups collaborating using plotly, or using hte excellent dashboarding tools, there's nothing to stop you from taking the exact same data and POSTing it to Plotly Online! :)
 
+## Develop, build and deploy
+
+So you want to fork and change this, then deploy so you and your colleagues can usee the updated version?
+
+Simple. Make your changes to your own fork, navigate to this README on github, and click the `deploy` button below. It's free. Simples.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## With great thanks to...
 
