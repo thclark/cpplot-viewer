@@ -4,6 +4,7 @@
    <img src="https://cdn.worldvectorlogo.com/logos/react.svg" height="48">
    <img src="https://steemitimages.com/0x0/https://s3-us-west-1.amazonaws.com/plotly-tutorials/plotly-marketing-pages/images/new-branding/logo/images/plotly-logo-01-stripe%402x.png" height="48">
 </a>
+
 [![npm](https://img.shields.io/npm/v/cpplot-viewer.svg)](https://www.npmjs.com/package/cpplot-viewer)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![Build Status](https://travis-ci.com/thclark/cpplot-viewer.svg?branch=master)](https://travis-ci.com/thclark/cpplot-viewer)
