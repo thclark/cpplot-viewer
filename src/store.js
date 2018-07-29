@@ -7,7 +7,7 @@ import rootReducer from './reducers'
 export default () => {
   const reducer = persistReducer(
     {
-      key: 'cpplot',
+      key: 'viewer',
       storage,
       whitelist: [],
       transforms: [],
