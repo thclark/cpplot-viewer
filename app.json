@@ -1,6 +1,6 @@
 {
   "name": "cpplot-viewer",
-  "description": "An in-broswer viewer for figure files produced by the cppplot library",
+  "description": "An in-browser viewer for figure files produced by the cppplot library",
   "repository": "https://github.com/thclark/cpplot-viewer",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
   "keywords": ["c++", "cpp", "figure", "plotly", "graph", "chart"],
