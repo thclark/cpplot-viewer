@@ -1,67 +1,56 @@
-import * as actions from '../actions/uploader'
-
+import * as actions from '../actions/viewer'
 
 const initialState = {
+  list: [],         // A list of available figures [{id: id1, name: fig1, modified: date1}, {id: id2, name: fig2, modified: date2}] in the folder designated by path
+  loading: false,   // Boolean indicating whether a load is in progress
+  detail: null,     // Data for the currently selected figure
+  selected: null,   // Name of the selected figure
 }
 
 
 export default (state = initialState, action) => {
-  const uploaderName = action.uploaderName ? action.uploaderName : null
-  const fileId = action.fileId ? action.fileId : null
 
   switch (action.type) {
-    case actions.CLEAR_ALL_UPLOADERS:
-      return initialState
-
-    case actions.CREATE_UPLOADER:
-      if (uploaderName) {
-        return {
-          ...state,
-          // TODO Add an uploader to the state
-        }
+    case actions.FIGURE_SET_LOADING:
+      return {
+        ...state,
+        loading: true,
+        detail: null,
+        selected: action.index
       }
-      console.error('uploader created without name')
+
+    case actions.FIGURE_LOADED:
+      return {
+        ...state,
+        loading: false,
+        detail: action.detail,
+        selected: action.index
+      }
+
+    case actions.FIGURE_UPDATE:
+      // TODO Add figure save functionality
+      console.warning('No figure save functionality in place yet')
       return state
 
-    case actions.DESTROY_UPLOADER:
-      if (uploaderName) {
-        const newState = { ...state }
-        newState.remove(uploaderName)
-        // TODO Any other clearing up???
-        return newState
+    case actions.FILES_SELECT:
+      // TODO get the list of available *.json files in the selected directory
+      // [
+      //           {
+      //             name: '/Users/thc29/Source/thclark/cpplot-viewer/examples/mandelbrot.json',
+      //             modified: '2018-07-29T07:41:06+00:00'
+      //           },
+      //           {
+      //             name: '/Users/thc29/Source/thclark/cpplot-viewer/examples/mandelbrot_temp.json',
+      //             modified: '2018-07-29T07:41:07+00:00'
+      //           }
+      //         ],
+      console.log('reducer: selected files')
+      return{
+        list: Array.from(action.files),
+        loading: false,
+        detail: null,
+        selected: null,
       }
-      console.error('Attempted to destroy an uploader without name')
-      return state
-
-    case actions.ADD_FILE:
-      if (fileId && uploaderName) {
-        // TODO delete it from state
-        return {
-          ...state,
-        }
-      }
-      console.error('ADD_FILE action invoked without fileId or uploaderName')
-      return state
-
-    case actions.DELETE_FILE:
-      if (fileId && uploaderName) {
-        // TODO delete it from state
-        return {
-          ...state,
-        }
-      }
-      console.error('DELETE_FILE action invoked without fileId or uploaderName')
-      return state
-
-    case actions.UPDATE_FILE:
-      if (fileId && uploaderName) {
-        // TODO update the file in the state
-        return {
-          ...state,
-        }
-      }
-      console.error('UPDATE_FILE action invoked without fileId or uploaderName')
-      return state
 
     default:
       return state
