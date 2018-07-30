@@ -20,10 +20,18 @@ export default (state = initialState, action) => {
       }
 
     case actions.FIGURE_LOADED:
+      // TODO Improve calculation of size properties based on screen width
+      let layout = action.detail.layout ? action.detail.layout : {}
       return {
         ...state,
         loading: false,
-        detail: action.detail,
+        detail: {
+          ...action.detail,
+          layout: {...layout,
+            width: 600,
+            height: 600
+          }
+        },
         selected: action.index
       }
 
