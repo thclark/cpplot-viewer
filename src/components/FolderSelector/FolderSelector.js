@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Label, Input, Button, FormGroup, FormText} from 'reactstrap'
+import { Label, Input, FormGroup, FormText} from 'reactstrap'
 import { selectFiles } from '../../actions/viewer'
 
 
@@ -23,15 +23,15 @@ class FolderSelector extends Component {
   render() {
     return (
       <div>
-        <Label className="btn btn-primary" for="fileSelector">
-          <Input type="file" style={{display: "none"}} id="fileSelector" onChange={(event) => this.props.onSelectedFilesChange(event)} multiple />
-          Select *.json figure files
-        </Label>
         <FormGroup>
           <FormText color="muted">
             Select a group of *.json files to watch. They'll be rendered below, and updated if the files get overwritten.
           </FormText>
         </FormGroup>
+        <Label className="btn btn-primary" for="fileSelector">
+          <Input type="file" style={{display: "none"}} id="fileSelector" onChange={(event) => this.props.onSelectedFilesChange(event)} multiple />
+          Select *.json figure files
+        </Label>
       </div>
     )
   }

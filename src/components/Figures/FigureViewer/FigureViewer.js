@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
 import Form from 'react-jsonschema-form'
 import theme from 'react-jsonschema-form-bootstrap'
+import plotComponentFactory from 'react-plotly.js/factory'
+import Plotly from 'plotly.js/dist/plotly';
 import { connect } from 'react-redux'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
 import { Col, Row, FormGroup, FormText } from 'reactstrap'
-import Plot from 'react-plotly.js'
 import { setFigureDetailLoading, setFigureDetail } from '../../../actions/viewer'
 import FolderSelector from '../../FolderSelector'
 import { updateFigureDetail } from '../../../actions/viewer'
 import { LoadingSpinner } from '../../Common'
+
+
+// Build the plot component. We do it this was instead of exporting so we can access the Plotly library API directly.
+const Plot = plotComponentFactory(Plotly);
 
 
 const mapStateToProps = state => ({
@@ -106,7 +111,22 @@ class FigureBase extends Component {
         width: 677,
       },
       frames: [],
-      config: {},
+      config: {
+        modeBarButtonsToRemove: ['toImage', 'sendDataToCloud'],
+        modeBarButtonsToAdd: [{
+          name: 'Save as .svg (publication quality)',
+          icon: Plotly.Icons.camera,
+          click: function(gd) {
+            Plotly.downloadImage(gd, {format: 'svg'})
+          }
+        }, {
+          name: 'Save as low res .jpg',
+          icon: Plotly.Icons.camera,
+          click: function(gd) {
+            Plotly.downloadImage(gd, {format: 'jpeg'})
+          }
+        }]
+      },
     }
   }
 
@@ -172,8 +192,8 @@ class FigureViewerBase extends Component {
           <Col md="4">
             <Row>
               <Col xs="12">
-                <h4>cpplot-viewer</h4>
-                <h6>View and interact with figure files on your local machine.</h6>
+                <h4>{this.props.title}</h4>
+                <h6>{this.props.subtitle}</h6>
               </Col>
             </Row>
             <hr />
@@ -185,6 +205,11 @@ class FigureViewerBase extends Component {
             <hr />
             <Row>
               <Col xs="12">
+                <FormGroup>
+                  <FormText color="muted">
+                    Choose which figure to render. The figure will be re-rendered on change.
+                  </FormText>
+                </FormGroup>
                 <Select
                   id="figure-select"
                   ref={(ref) => { this.select = ref }}
@@ -201,11 +226,6 @@ class FigureViewerBase extends Component {
                   rtl={false}
                   searchable
                 />
-                <FormGroup>
-                  <FormText color="muted">
-                    Choose which figure to render
-                  </FormText>
-                </FormGroup>
               </Col>
             </Row>
             <hr />
@@ -228,5 +248,9 @@ class FigureViewerBase extends Component {
   }
 }
 
+FigureViewerBase.defaultProps = {
+  title: 'cpplot-viewer',
+  subtitle: 'View and interact with figure files on your local machine.',
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(FigureViewerBase)
